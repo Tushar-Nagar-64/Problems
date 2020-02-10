@@ -1,0 +1,20 @@
+class Solution:
+    def reverse(self, x: int) -> int:
+    
+        y = abs(x)
+        s1 = [int(i) for i in str(y)]
+        s1.reverse()
+        
+        s2=[str(i) for i in s1]
+        #s2 = list(map(int, s1))
+        s2 = int("".join(s2))
+        
+        if -2**31<s2<(2**31)-1:
+            if x>0:
+                return(s2)
+            else:
+                return(-s2)
+            
+        else:
+            return 0
+        

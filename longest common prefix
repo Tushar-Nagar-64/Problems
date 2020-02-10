@@ -1,0 +1,24 @@
+strs = ["flo","flo","flo","flo","flo","flo"]
+s1 = ""
+
+if len(strs)==1:
+    print(strs[0])
+
+else:
+    for i in range(0,len(strs)):
+
+        for k in range (0,len(min(strs,key=len))):
+
+            if i+1<= len(strs):
+
+                if all(strs[i][k] == strs[i+1][k] for i in strs):
+                    s1+=strs[i][k]
+
+                else:
+                    break
+
+            else:
+                break
+
+print(s1)
+
