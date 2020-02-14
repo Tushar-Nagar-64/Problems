@@ -1,0 +1,108 @@
+class Solution:
+    def romanToInt(self, s: str) -> int:
+    
+        
+        s = [x.replace('I','1') for x in s]
+        s = [x.replace('V','5') for x in s]
+        s = [x.replace('X','10') for x in s]
+        s = [x.replace('L','50') for x in s]
+        s = [x.replace('C','100') for x in s]
+        s = [x.replace('D','500') for x in s]
+        s = [x.replace('M','1000') for x in s]
+
+        
+        
+        s1 = []
+        
+        count = -1
+        
+        while count >= -len(s):
+            
+            if count >= -len(s)+1:
+                s1.append([s[count],s[count-1]])
+                count-=2
+
+            else:
+                s1.append([s[count]])
+                count-=1
+        
+        #print(s1)
+        
+        count2 = 0
+        
+        s1 = [''.join(count2) for count2 in s1]
+        print(s1)
+        
+        def replace_item(x):
+             if x == '11':
+                return 2
+             elif x == '1010':
+                return 20
+             elif x == '100100':
+                return 200
+             elif x == '10001000':
+                return 2000
+             elif x == '51':
+                return 4
+             elif x == '15':
+                return 6
+             elif x == '101':
+                return 9
+             elif x == '110':
+                return 11
+             elif x == '5010':
+                return 40
+             elif x == '1050':
+                return 60
+             elif x == '10010':
+                return 90
+             elif x == '10100':
+                return 110
+             elif x == '500100':
+                return 400
+             elif x == '100500':
+                return 600
+             elif x == '1000100':
+                return 900
+             elif x == '1001000':
+                return 1100
+             else:
+                 return int(x)
+
+        s2 = map(replace_item, s1)
+        s3 = list(s2)
+        
+        print(s3)
+           
+        #s4 = [list(i) if i%10!=0 else i for i in s3]
+        
+        #print(s4)
+        
+        #def sum2(num):
+        #    return sum(map(int, str(num)))
+        
+        #s5 = [sum2(x) if x%10!=0 else x for x in s3]
+
+        #print(s5)
+        
+        s6 = map(int,s3)
+        s7 = list(s6)
+
+        sol = sum(s7)
+            
+        #s1[count2] = s1[count2].split()
+        #s1[count2] = map(int, s1[count2])
+        #print(s1)
+        #sol = sum(s1)
+
+
+        return sol
+            
+        #s1 = [count2.replace('101','9') for count2 in s1]
+        #s1 = [count2.replace('5010','40') for count2 in s1]
+        #s1 = [count2.replace('5100','90') for count2 in s1]
+        #s1 = [count2.replace('500100','400') for count2 in s1]
+        #s1 = [count2.replace('1000100','900') for count2 in s1]
+
+
+
